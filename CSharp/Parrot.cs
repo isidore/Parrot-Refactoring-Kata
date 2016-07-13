@@ -4,8 +4,6 @@ namespace parrot
 {
     public class Parrot
     {
-        protected double _voltage;
-        protected bool _isNailed;
         private readonly Parrot other;
 
         public Parrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
