@@ -8,13 +8,33 @@ namespace parrot
         readonly int _numberOfCoconuts;
         readonly double _voltage;
         readonly bool _isNailed;
-
+        private readonly Parrot other;
         public Parrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
         {
+            other = CreateParrot(type, numberOfCoconuts, voltage, isNailed);
+
             _type = type;
             _numberOfCoconuts = numberOfCoconuts;
             _voltage = voltage;
             _isNailed = isNailed; 
+        }
+
+        protected Parrot()
+        {
+        }
+
+        private Parrot CreateParrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
+        {
+            switch (_type)
+            {
+                case ParrotTypeEnum.EUROPEAN:
+                    return new EuropeanParrot();
+                case ParrotTypeEnum.AFRICAN:
+                case ParrotTypeEnum.NORWEGIAN_BLUE:
+                default:
+
+                    return null;
+            }
         }
 
         public double GetSpeed()
@@ -46,5 +66,9 @@ namespace parrot
         {
             return 12.0;
         }
+    }
+
+    public class EuropeanParrot : Parrot
+    {
     }
 }
