@@ -7,10 +7,10 @@ namespace parrot
         protected double _voltage;
         protected bool _isNailed;
         private readonly Parrot other;
+
         public Parrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
         {
             other = CreateParrot(type, numberOfCoconuts, voltage, isNailed);
-
         }
 
         protected Parrot()
@@ -26,25 +26,23 @@ namespace parrot
                 case ParrotTypeEnum.AFRICAN:
                     return new AfricanParrot(numberOfCoconuts);
                 case ParrotTypeEnum.NORWEGIAN_BLUE:
-                    return new NorwegianBlueParrot( isNailed, voltage);
+                    return new NorwegianBlueParrot(isNailed, voltage);
                 default:
 
                     return null;
             }
         }
-        
-        public virtual  double GetSpeed()
-        {
 
-                    return other.GetSpeed();
+        public virtual double GetSpeed()
+        {
+            return other.GetSpeed();
         }
 
         protected double GetBaseSpeed(double voltage)
         {
-            return Math.Min(24.0, voltage * GetBaseSpeed());
+            return Math.Min(24.0, voltage*GetBaseSpeed());
         }
 
-       
 
         protected double GetBaseSpeed()
         {
