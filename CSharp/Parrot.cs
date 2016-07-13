@@ -12,9 +12,6 @@ namespace parrot
         {
             other = CreateParrot(type, numberOfCoconuts, voltage, isNailed);
 
-            _numberOfCoconuts = numberOfCoconuts;
-            _voltage = voltage;
-            _isNailed = isNailed; 
         }
 
         protected Parrot()
