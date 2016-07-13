@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AfricanParrot.cs" />
+    <Compile Include="EuropeanParrot.cs" />
+    <Compile Include="NorwegianBlueParrot.cs" />
     <Compile Include="Parrot.cs" />
     <Compile Include="ParrotTest.cs" />
     <Compile Include="ParrotTypeEnum.cs" />

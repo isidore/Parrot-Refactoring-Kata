@@ -51,44 +51,4 @@ namespace parrot
             return 12.0;
         }
     }
-
-    public class NorwegianBlueParrot : Parrot
-    {
-        public NorwegianBlueParrot(bool isNailed, double voltage)
-        {
-            this._isNailed = isNailed;
-            this._voltage = voltage;
-        }
-
-        public override double GetSpeed()
-        {
-            return (_isNailed) ? 0 : GetBaseSpeed(_voltage);
-        }
-    }
-
-    public class AfricanParrot : Parrot
-    {
-        protected int _numberOfCoconuts;
-
-        public AfricanParrot(int numberOfCoconuts)
-        {
-            this._numberOfCoconuts = numberOfCoconuts;
-        }
-        protected double GetLoadFactor()
-        {
-            return 9.0;
-        }
-        public override double GetSpeed()
-        {
-            return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
-        }
-    }
-
-    public class EuropeanParrot : Parrot
-    {
-        override  public double GetSpeed()
-        {
-           return  GetBaseSpeed();
-        }
-    }
 }
