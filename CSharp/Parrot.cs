@@ -15,7 +15,7 @@ namespace parrot
         {
         }
 
-        private Parrot CreateParrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
+        public static Parrot CreateParrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
         {
             switch (type)
             {
