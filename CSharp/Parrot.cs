@@ -7,7 +7,7 @@ namespace parrot
         readonly ParrotTypeEnum _type;
          protected  int _numberOfCoconuts;
         protected double _voltage;
-        readonly bool _isNailed;
+        protected bool _isNailed;
         private readonly Parrot other;
         public Parrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
         {
@@ -32,6 +32,7 @@ namespace parrot
                 case ParrotTypeEnum.AFRICAN:
                     return new AfricanParrot(numberOfCoconuts);
                 case ParrotTypeEnum.NORWEGIAN_BLUE:
+                    return new NorwegianBlueParrot( isNailed, voltage);
                 default:
 
                     return null;
@@ -47,13 +48,13 @@ namespace parrot
                 case ParrotTypeEnum.AFRICAN:
                     return other.GetSpeed();
                 case ParrotTypeEnum.NORWEGIAN_BLUE:
-                    return (_isNailed) ? 0 : GetBaseSpeed(_voltage);
+                    return other.GetSpeed();
             }
 
             throw new Exception("Should be unreachable");
         }
 
-        private double GetBaseSpeed(double voltage)
+        protected double GetBaseSpeed(double voltage)
         {
             return Math.Min(24.0, voltage * GetBaseSpeed());
         }
@@ -66,6 +67,20 @@ namespace parrot
         protected double GetBaseSpeed()
         {
             return 12.0;
+        }
+    }
+
+    internal class NorwegianBlueParrot : Parrot
+    {
+        public NorwegianBlueParrot(bool isNailed, double voltage)
+        {
+            this._isNailed = isNailed;
+            this._voltage = voltage;
+        }
+
+        public override double GetSpeed()
+        {
+            return (_isNailed) ? 0 : GetBaseSpeed(_voltage);
         }
     }
 
