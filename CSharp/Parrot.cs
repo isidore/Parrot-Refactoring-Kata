@@ -2,18 +2,9 @@
 
 namespace parrot
 {
-    public class Parrot
+    public abstract class Parrot
     {
-        private readonly Parrot other;
-
-        public Parrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
-        {
-            other = CreateParrot(type, numberOfCoconuts, voltage, isNailed);
-        }
-
-        protected Parrot()
-        {
-        }
+      
 
         public static Parrot CreateParrot(ParrotTypeEnum type, int numberOfCoconuts, double voltage, bool isNailed)
         {
@@ -31,11 +22,7 @@ namespace parrot
             }
         }
 
-        public virtual double GetSpeed()
-        {
-            return other.GetSpeed();
-        }
-
+        public abstract double GetSpeed();
 
         protected double GetBaseSpeed()
         {
