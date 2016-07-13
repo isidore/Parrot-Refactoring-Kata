@@ -4,7 +4,6 @@ namespace parrot
 {
     public class Parrot
     {
-         protected  int _numberOfCoconuts;
         protected double _voltage;
         protected bool _isNailed;
         private readonly Parrot other;
@@ -45,10 +44,7 @@ namespace parrot
             return Math.Min(24.0, voltage * GetBaseSpeed());
         }
 
-        protected double GetLoadFactor()
-        {
-            return 9.0;
-        }
+       
 
         protected double GetBaseSpeed()
         {
@@ -56,7 +52,7 @@ namespace parrot
         }
     }
 
-    internal class NorwegianBlueParrot : Parrot
+    public class NorwegianBlueParrot : Parrot
     {
         public NorwegianBlueParrot(bool isNailed, double voltage)
         {
@@ -70,13 +66,18 @@ namespace parrot
         }
     }
 
-    internal class AfricanParrot : Parrot
+    public class AfricanParrot : Parrot
     {
+        protected int _numberOfCoconuts;
+
         public AfricanParrot(int numberOfCoconuts)
         {
             this._numberOfCoconuts = numberOfCoconuts;
         }
-
+        protected double GetLoadFactor()
+        {
+            return 9.0;
+        }
         public override double GetSpeed()
         {
             return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
