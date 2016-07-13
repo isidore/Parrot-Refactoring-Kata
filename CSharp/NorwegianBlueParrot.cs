@@ -1,3 +1,5 @@
+using System;
+
 namespace parrot
 {
     public class NorwegianBlueParrot : Parrot
@@ -13,7 +15,8 @@ namespace parrot
 
         public override double GetSpeed()
         {
-            return (_isNailed) ? 0 : GetBaseSpeed(_voltage);
+            var baseSpeed = Math.Min(24.0, _voltage*GetBaseSpeed());
+            return (_isNailed) ? 0 : baseSpeed;
         }
     }
 }

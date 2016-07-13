@@ -36,11 +36,6 @@ namespace parrot
             return other.GetSpeed();
         }
 
-        protected double GetBaseSpeed(double voltage)
-        {
-            return Math.Min(24.0, voltage*GetBaseSpeed());
-        }
-
 
         protected double GetBaseSpeed()
         {
