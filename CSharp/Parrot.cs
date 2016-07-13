@@ -4,7 +4,6 @@ namespace parrot
 {
     public class Parrot
     {
-        readonly ParrotTypeEnum _type;
          protected  int _numberOfCoconuts;
         protected double _voltage;
         protected bool _isNailed;
@@ -13,7 +12,6 @@ namespace parrot
         {
             other = CreateParrot(type, numberOfCoconuts, voltage, isNailed);
 
-            _type = type;
             _numberOfCoconuts = numberOfCoconuts;
             _voltage = voltage;
             _isNailed = isNailed; 
@@ -41,17 +39,8 @@ namespace parrot
         
         public virtual  double GetSpeed()
         {
-            switch (_type)
-            {
-                case ParrotTypeEnum.EUROPEAN:
-                    return other.GetSpeed();
-                case ParrotTypeEnum.AFRICAN:
-                    return other.GetSpeed();
-                case ParrotTypeEnum.NORWEGIAN_BLUE:
-                    return other.GetSpeed();
-            }
 
-            throw new Exception("Should be unreachable");
+                    return other.GetSpeed();
         }
 
         protected double GetBaseSpeed(double voltage)
